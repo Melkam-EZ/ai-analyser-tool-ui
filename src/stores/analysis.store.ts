@@ -18,8 +18,7 @@ export const useAnalysisStore = create<IThemeStore>((set) => ({
 	createAnalysis: async (analysisDto) => {
 		try {
 			set({ isLoading: true });
-		
-			useNotificationStore.getState().sendAlert(message);
+			useNotificationStore.getState().sendAlert('Successful!');
 			set({ analysis: getdummyAnalysis() });
 			return true;
 		} catch (error) {
