@@ -98,7 +98,7 @@ export const response = {
 	usage: { input_tokens: 423, output_tokens: 746 }
 }
 
-export function getResposes() {
+export function getdummyAnalysis() {
 	return {
 		id: response.id,
 		type: response.type,

@@ -1,8 +1,8 @@
 import { create } from "zustand";
 
-import { sendHttpRequest } from "../http";
 import { useNotificationStore } from "./notification.store";
 import { IBaseErrorObject, CreateAnalysisDto, IAnalysis } from "../interface";
+import { getdummyAnalysis } from "../constants";
 
 interface IThemeStore {
 	analysis: IAnalysis | null;
@@ -18,13 +18,9 @@ export const useAnalysisStore = create<IThemeStore>((set) => ({
 	createAnalysis: async (analysisDto) => {
 		try {
 			set({ isLoading: true });
-			const { data, message } = await sendHttpRequest<{ analysis: IAnalysis }>({
-				url: '/analysis',
-				method: 'post',
-				data: { ...analysisDto }
-			});
+		
 			useNotificationStore.getState().sendAlert(message);
-			set({ analysis: data.analysis });
+			set({ analysis: getdummyAnalysis() });
 			return true;
 		} catch (error) {
 			console.log('error', error);

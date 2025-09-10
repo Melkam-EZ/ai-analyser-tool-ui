@@ -56,10 +56,6 @@ export default function HomePage() {
 
 				</>}
 
-
-
-
-
 			</div >
 		</PageLayout >
 
